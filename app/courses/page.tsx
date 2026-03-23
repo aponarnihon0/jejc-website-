@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { 
   BookOpen, 
@@ -86,9 +84,7 @@ const features = [
 export default function CoursesPage() {
   return (
     <>
-      <Header />
-      <main>
-        <PageHeader
+      <PageHeader
           title="Japanese Language Course"
           titleEn="জাপানি ভাষা কোর্স"
           description="JLPT N5 থেকে N1 পর্যন্ত সকল লেভেলের কোর্স। অভিজ্ঞ শিক্ষকদের তত্ত্বাবধানে শিখুন।"
@@ -202,8 +198,6 @@ export default function CoursesPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }

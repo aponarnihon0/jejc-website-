@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { 
   FileText, 
@@ -84,9 +82,7 @@ const tips = [
 export default function VisaPage() {
   return (
     <>
-      <Header />
-      <main>
-        <PageHeader
+      <PageHeader
           title="Japan Student Visa"
           titleEn="জাপান স্টুডেন্ট ভিসা"
           description="COE থেকে Visa Interview পর্যন্ত সম্পূর্ণ প্রক্রিয়া জানুন"
@@ -258,8 +254,6 @@ export default function VisaPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }

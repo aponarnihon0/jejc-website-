@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { 
   Briefcase,
@@ -107,9 +105,7 @@ const afterGraduation = [
 export default function JobsPage() {
   return (
     <>
-      <Header />
-      <main>
-        <PageHeader
+      <PageHeader
           title="Part-time Job in Japan"
           titleEn="জাপানে পার্ট-টাইম জব"
           description="পড়াশোনার পাশাপাশি আয়ের সুযোগ এবং কাজের নিয়মকানুন সম্পর্কে জানুন"
@@ -237,8 +233,6 @@ export default function JobsPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }

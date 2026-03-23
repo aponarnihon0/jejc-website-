@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { 
   Calculator,
@@ -46,9 +44,7 @@ const savingTips = [
 export default function CostPage() {
   return (
     <>
-      <Header />
-      <main>
-        <PageHeader
+      <PageHeader
           title="Cost of Studying in Japan"
           titleEn="জাপানে পড়াশোনার খরচ"
           description="টিউশন ফি, থাকা-খাওয়া, যাতায়াত এবং অন্যান্য খরচের বিস্তারিত হিসাব"
@@ -207,8 +203,6 @@ export default function CostPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }

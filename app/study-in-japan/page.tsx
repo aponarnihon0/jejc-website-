@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { PageHeader } from "@/components/page-header";
 import { 
   GraduationCap, 
@@ -86,9 +84,7 @@ const relatedLinks = [
 export default function StudyInJapanPage() {
   return (
     <>
-      <Header />
-      <main>
-        <PageHeader
+      <PageHeader
           title="Study in Japan from Bangladesh"
           description="বাংলাদেশ থেকে জাপানে পড়াশোনার সম্পূর্ণ গাইড ২০২৪ - Admission Process, University Selection, এবং Timeline"
         />
@@ -262,8 +258,6 @@ export default function StudyInJapanPage() {
             </div>
           </div>
         </section>
-      </main>
-      <Footer />
     </>
   );
 }
