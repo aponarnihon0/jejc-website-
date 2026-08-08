@@ -1,0 +1,51 @@
+name: Replace old GitHub username
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/replace-username.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  replace:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Replace old username everywhere
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t files < <(git grep -Il -F 'sammir03-bot' || true)
+          echo "Matched files: ${#files[@]}"
+          for f in "${files[@]}"; do
+            echo "Updating $f"
+            python3 - "$f" <<'PY'
+          from pathlib import Path
+          import sys
+          p = Path(sys.argv[1])
+          data = p.read_bytes()
+          p.write_bytes(data.replace(b'sammir03-bot', b'aponarnihon0'))
+          PY
+          done
+
+          # Remove this one-shot workflow from the final repository state.
+          rm -f .github/workflows/replace-username.yml
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing to commit"
+            exit 0
+          fi
+          git commit -m "Replace sammir03-bot with aponarnihon0"
+          git push origin HEAD:main
